@@ -10,6 +10,6 @@ const familyNameSchema = new Schema(
   }
 )
 
-const FamilyName = model('Family', familyNameSchema);
+const FamilyName = model('FamilyName', familyNameSchema);
 
 module.exports = FamilyName;
