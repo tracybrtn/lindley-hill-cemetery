@@ -11,13 +11,14 @@ const residentSchema = new Schema(
     lastName: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'FamilyName'
+        ref: 'Family',
+        required: true
       }
     ],
     maidenName: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'FamilyName'
+        ref: 'Family'
       }
     ],
     title: {
@@ -32,19 +33,31 @@ const residentSchema = new Schema(
     dateOfDeath: {
       type: Date
     },
-    family: [
+    spouse: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Family'
+        ref: 'Resident'
+      }
+    ],
+    father: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Resident'
+      }
+    ],
+    mother: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Resident'
       }
     ],
     memorialID: {
       type: Number,
-      required: true
+      //required: true
     },
     URL: {
       type: String,
-      required: true
+      //required: true
     }
   }
 )

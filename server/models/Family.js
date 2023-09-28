@@ -1,19 +1,32 @@
 const { Schema, model } = require('mongoose');
 
-//all of these need to reference already existing people in the database
 const familySchema = new Schema(
   {
-    spouse: {
-      type: String
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true
     },
-    father: {
-      type: String
-    },
-    mother: {
-      type: String
+    //Residents who have this last name
+    residents:  [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Resident'
+      }
+    ]
+  },
+  {
+    toJSON: {
+      virtuals: true
     }
   }
 )
+
+//Residents with same last name number count 
+familySchema.virtual('residentCount').get(function() {
+  return this.residents.length
+});
 
 const Family = model('Family', familySchema);
 

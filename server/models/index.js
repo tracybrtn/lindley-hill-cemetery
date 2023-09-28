@@ -1,7 +1,6 @@
 //import all models
-const Resident = require('./Resident');
 const Family = require('./Family');
-const FamilyName = require('./FamilyName');
+const Resident = require('./Resident');
 
 //export models
-module.exports = { Resident, Family, FamilyName };
+module.exports = { Family, Resident };

@@ -4,35 +4,40 @@ const { gql } = require('apollo-server-express');
 // create typeDefs
 
 const typeDefs = gql`
+  type Family {
+    _id: ID
+    name: String
+  }
+
   type Resident {
     _id:ID
     name: String
-    lastName: [FamilyName]
-    maidenName: [FamilyName]
+    lastName: [Family]
+    maidenName: [Family]
     title: String
     nickname: String
     dateOfBirth: String
     dateOfDeath: String
-    family: [Family]
     memorialID: Int
     URL: String
   }
 
-  type FamilyName {
-    name: String
-  }
-
-  type Family {
-    spouse: String
-    father: String
-    mother: String
-  }
-
   type Query {
     allResidents: [Resident]
+    resident(_id: ID!): Resident
     allFamilies: [Family]
-    allFamilyNames: [FamilyName]
+    family(_id: ID!): Family
+  }
+  
+  type Mutation {
+    addFamily(name: String!): Family
+    addResident(name: String!, title: String, nickname: String, dateOfBirth: String, dateOfDeath: String, family: String, memorialID: Int!, URL: String): Resident
+    updateFamily(name: String!): Family
+    updateResident(name: String!, title: String, nickname: String, dateOfBirth: String, dateOfDeath: String, family: String, memorialID: Int!, URL: String): Resident
+    deleteFamily(_id: ID!): Family
+    deleteResident(_id: ID!): Resident
   }
 `;
+
 // export the typeDefs
 module.exports = typeDefs;
