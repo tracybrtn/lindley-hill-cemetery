@@ -1,14 +1,13 @@
-const Surname = require('./Surname')
+const FamilyName = require('./FamilyName')
 const Resident = require('./Resident');
 
 //Associations
-//Surname associations 
-Surname.hasMany(Resident, {
-  foreignKey: 'surname_id'
+FamilyName.hasMany(Resident, {
+  foreignKey: 'FamilyName_id'
 });
 
-Resident.hasOne(Surname, {
+Resident.hasOne(FamilyName, {
   foreignKey: 'resident_id'
 });
 
-module.exports = { Family, Resident, Surname }
+module.exports = { Resident, FamilyName }

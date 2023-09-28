@@ -19,7 +19,7 @@ Resident.init(
     surname_id: {
       type: DataTypes.INTEGER,
       REFERENCES: {
-          model: "surname",
+          model: "family name",
           key: "id",
       }
     }

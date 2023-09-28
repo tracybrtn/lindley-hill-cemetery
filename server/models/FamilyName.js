@@ -1,13 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-//Create Surname model
+//Create FamilyName model
+class FamilyName extends Model {}
 
-class Surname extends Model {}
-
-//Create fields/columns for Surname model
-
-Surname.init(
+//Create fields/columns for FamilyName model
+FamilyName.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,7 +13,7 @@ Surname.init(
       primaryKey: true,
       autoIncrement: true
     },
-    surname: {
+    familyName: {
       type: DataTypes.STRING,
       allowNull: false
     }
@@ -24,9 +22,9 @@ Surname.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'suname'
+    modelName: 'family_name'
     //timestamps default is true
   }
 );
 
-module.exports = Surname;
+module.exports = FamilyName;
