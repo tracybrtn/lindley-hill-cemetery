@@ -15,50 +15,50 @@ const residentSchema = new Schema(
         required: true
       }
     ],
-    maidenName: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Family'
-      }
-    ],
-    title: {
-      type: String
-    },
-    nickname: {
-      type: String
-    },
-    dateOfBirth: {
-      type: Date,
-    },
-    dateOfDeath: {
-      type: Date
-    },
-    spouse: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Resident'
-      }
-    ],
-    father: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Resident'
-      }
-    ],
-    mother: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Resident'
-      }
-    ],
-    memorialID: {
-      type: Number,
-      //required: true
-    },
-    URL: {
-      type: String,
-      //required: true
-    }
+    // maidenName: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Family'
+    //   }
+    // ],
+    // title: {
+    //   type: String
+    // },
+    // nickname: {
+    //   type: String
+    // },
+    // dateOfBirth: {
+    //   type: Date,
+    // },
+    // dateOfDeath: {
+    //   type: Date
+    // },
+    // spouse: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Resident'
+    //   }
+    // ],
+    // father: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Resident'
+    //   }
+    // ],
+    // mother: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Resident'
+    //   }
+    // ],
+    // memorialID: {
+    //   type: Number,
+    //   //required: true
+    // },
+    // URL: {
+    //   type: String,
+    //   //required: true
+    // }
   }
 )
 

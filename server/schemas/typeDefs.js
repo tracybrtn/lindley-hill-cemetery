@@ -6,20 +6,14 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type Family {
     _id: ID
-    name: String
+    lastName: String
+    alpha_id: Int
   }
 
   type Resident {
-    _id:ID
+    _id: ID
     name: String
-    lastName: [Family]
-    maidenName: [Family]
-    title: String
-    nickname: String
-    dateOfBirth: String
-    dateOfDeath: String
-    memorialID: Int
-    URL: String
+    lastName: String
   }
 
   type Query {
@@ -30,9 +24,9 @@ const typeDefs = gql`
   }
   
   type Mutation {
-    addFamily(name: String!): Family
-    addResident(name: String!, title: String, nickname: String, dateOfBirth: String, dateOfDeath: String, family: String, memorialID: Int!, URL: String): Resident
-    updateFamily(name: String!): Family
+    addFamily(lastName: String!, alpha_id: Int): Family
+    addResident(name: String!, lastName: String!): Resident
+    updateFamily(lastName: String!): Family
     updateResident(name: String!, title: String, nickname: String, dateOfBirth: String, dateOfDeath: String, family: String, memorialID: Int!, URL: String): Resident
     deleteFamily(_id: ID!): Family
     deleteResident(_id: ID!): Resident
@@ -40,4 +34,18 @@ const typeDefs = gql`
 `;
 
 // export the typeDefs
+
+//    addResident(name: String!, title: String, nickname: String, dateOfBirth: String, dateOfDeath: String, family: String, memorialID: Int!, URL: String): Resident
+//  type Resident {
+//   _id:ID
+//   name: String
+//   lastName: String
+//   maidenName: [Family]
+//   title: String
+//   nickname: String
+//   dateOfBirth: String
+//   dateOfDeath: String
+//   memorialID: Int
+//   URL: String
+// }
 module.exports = typeDefs;

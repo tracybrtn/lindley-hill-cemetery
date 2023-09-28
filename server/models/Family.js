@@ -2,13 +2,19 @@ const { Schema, model } = require('mongoose');
 
 const familySchema = new Schema(
   {
-    name: {
+    lastName: {
       type: String,
       required: true,
       trim: true,
       unique: true
     },
-    //Residents who have this last name
+//    ID by alphabetical order starting form 1
+    alpha_id: {
+      type: Number,
+      required: true,
+      unique: true
+    },
+ //   Residents who have this last name
     residents:  [
       {
         type: Schema.Types.ObjectId,
